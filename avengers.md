@@ -96,12 +96,20 @@ id 8 =5
 id 4 = 4 
 
   UPDATE figurine SET weapon_id=1 WHERE nom = "Thor";
-  UPDATE figurine SET weapon_id=4 WHERE nom = "Iron Man";
-UPDATE figurine SET weapon_id=5 WHERE nom = "Black Panther";
+  UPDATE figurine SET weapon_id=4 WHERE nom = "Hulk";
+  UPDATE figurine SET weapon_id=5 WHERE nom = "Black Panther";
+  UPDATE figurine SET weapon_id=2 WHERE nom = "Captain America";
+    UPDATE figurine SET weapon_id=2 WHERE id=2;
 
 
 Afficher tous les avengers :
 
-SELECT * from 
+SELECT*FROM figurine INNER JOIN weapon ON weapon.id=weapon_id;
+
+-- Récuperer le nom des avengers et le nom de leurs armes dont l'année de sortie est supérieur à 2010
+
+SELECT figurine.nom, weapon.nom FROM figurine INNER JOIN weapon ON weapon.id=weapon_id WHERE annee_sortie>2010;
+
+SELECT nom FROM figurine WHERE weapon_id IS NULL;
 
  ````
